@@ -1,11 +1,12 @@
-﻿namespace JogoXadrez
+﻿using tabuleiro;
+namespace JogoXadrez
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
 
+            Tabuleiro tab = new Tabuleiro(8, 8);
 
 
 
