@@ -33,7 +33,7 @@ namespace xadrez
             mudaJogador();
         }
 
-        public void validarPosicaodeOrigem(Posicao pos)
+        public void validarPosicaodeDeOrigem(Posicao pos)
         {
             if (tab.peca(pos) == null)
             {
@@ -46,6 +46,14 @@ namespace xadrez
             if (!tab.peca(pos).existeMovimentosPossiveis())
             {
                 throw new TabuleiroException("Não existe movimentos possiveis para a peça de origem;");
+            }
+        }
+
+        public void validarPosicaodeDeDestino(Posicao origem, Posicao destino)
+        {
+            if (!tab.peca(origem).podeMoverPara(destino))
+            {
+                throw new TabuleiroException("Posição de destino invalida!");
             }
         }
 
