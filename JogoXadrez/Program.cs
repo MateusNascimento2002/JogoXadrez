@@ -43,6 +43,8 @@ namespace JogoXadrez
                     
                 }
 
+                Console.Clear();
+                Tela.imprimirPartida(partida);
 
 
                 

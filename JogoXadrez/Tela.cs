@@ -13,11 +13,21 @@ namespace JogoXadrez
             imprimirPecasCapturadas(partida);
             Console.WriteLine();
             Console.WriteLine($"Turno: {partida.turno}");
-            Console.WriteLine($"Aguardando jogada: {partida.jogadorAtual}");
-
-            if (partida.xeque)
+            if (!partida.terminada)
             {
-                Console.WriteLine("Você está em xeque");
+
+                Console.WriteLine($"Aguardando jogada: {partida.jogadorAtual}");
+
+                if (partida.xeque)
+                {
+                    Console.WriteLine("Você está em xeque");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("XEQUEMATE!");
+                Console.WriteLine($"Vencedor: {partida.jogadorAtual}");
             }
         }
 
@@ -26,7 +36,7 @@ namespace JogoXadrez
             Console.WriteLine("Peças capturada: ");
 
             Console.Write("Brancas: ");
-            
+
             imprimirConjunto(partida.pecasCapturadas(Cor.Branca));
 
             Console.WriteLine("");
@@ -43,7 +53,7 @@ namespace JogoXadrez
             Console.Write("[");
             foreach (Peca x in conjunto)
             {
-                Console.Write(x + " "); 
+                Console.Write(x + " ");
             }
             Console.Write("]");
 
@@ -51,7 +61,7 @@ namespace JogoXadrez
 
 
 
-            public static void imprimirTabuleiro(Tabuleiro tab)
+        public static void imprimirTabuleiro(Tabuleiro tab)
         {
             for (int i = 0; i < tab.linhas; i++)
             {
